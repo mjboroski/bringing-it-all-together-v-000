@@ -51,12 +51,3 @@ class Dog
   end
 
 end
-
-sql= <<-SQL
-  SELECT *
-  FROM dogs
-  )
-  SQL
-DB[:conn].execute(sql).map do |row|
-  Dog.new(row[1],row[2],row[0])
-end
