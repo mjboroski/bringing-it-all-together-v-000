@@ -38,15 +38,8 @@ class Dog
 
   end
 
-  def self.new_from_db
-    sql= <<-SQL
-      SELECT *
-      FROM dogs
-      )
-      SQL
-    DB[:conn].execute(sql).map do |row|
-      Dog.new(row[1],row[2],row[0])
-    end
+  def self.new_from_db(row)
+    Dog.new(row[1],row[2],row[0])
   end
 
   def self.find_by_name
@@ -57,4 +50,13 @@ class Dog
 
   end
 
+end
+
+sql= <<-SQL
+  SELECT *
+  FROM dogs
+  )
+  SQL
+DB[:conn].execute(sql).map do |row|
+  Dog.new(row[1],row[2],row[0])
 end
