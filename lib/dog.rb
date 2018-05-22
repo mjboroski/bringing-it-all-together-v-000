@@ -52,8 +52,8 @@ class Dog
       WHERE name=?
       LIMIT 1
       SQL
-    DB[:conn].execute(sql,@name)
-  end
+    DB[:conn].execute(sql,@name)[0]
+  end.
 
   def update
 
