@@ -53,7 +53,7 @@ class Dog
       LIMIT 1
       SQL
     DB[:conn].execute(sql,@name)[0]
-  end.
+  end
 
   def update
 
